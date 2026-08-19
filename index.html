@@ -1,9 +1,10 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070a10">
+<meta name="description" content="Anzar Hussain Paul — cybersecurity researcher portfolio.">
 <title>Anzar Hussain Paul | Cybersecurity Researcher</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -704,6 +705,298 @@ footer{
         gap:8px;
     }
 }
+
+/* ===== PROFESSIONAL UI UPGRADE ===== */
+:root{
+  --bg:#070a10;
+  --panel:rgba(15,21,32,.82);
+  --panel2:#111a27;
+  --border:rgba(148,163,184,.14);
+  --border-strong:rgba(0,229,255,.30);
+  --text:#f4f7fb;
+  --muted:#91a0b5;
+  --cyan:#5ee7ff;
+  --green:#54f0a4;
+  --purple:#a78bfa;
+  --red:#fb7185;
+  --yellow:#fbbf24;
+  --shadow:0 24px 70px rgba(0,0,0,.28);
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(900px 500px at 78% -10%,rgba(94,231,255,.12),transparent 62%),
+    radial-gradient(700px 500px at 5% 55%,rgba(167,139,250,.09),transparent 65%),
+    var(--bg);
+  color:var(--text);
+}
+body::before{
+  opacity:.08;
+  background-size:52px 52px;
+  mask-image:linear-gradient(to bottom,black 0%,transparent 78%);
+}
+
+.layout{grid-template-columns:272px 1fr}
+
+.sidebar{
+  width:272px;
+  padding:30px 20px;
+  background:rgba(7,10,16,.72);
+  border-right:1px solid var(--border);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+}
+
+.logo{margin-bottom:58px}
+.logo-box{
+  width:42px;height:42px;border-radius:11px;
+  background:linear-gradient(145deg,rgba(94,231,255,.14),rgba(94,231,255,.02));
+  border-color:rgba(94,231,255,.65);
+  box-shadow:0 0 28px rgba(94,231,255,.12);
+}
+.logo strong{font-size:13px}
+.nav-title{color:#617087}
+nav{gap:7px}
+nav a{
+  padding:13px 14px;
+  border:1px solid transparent;
+  border-radius:11px;
+}
+nav a:hover,nav a.active{
+  color:var(--cyan);
+  background:linear-gradient(90deg,rgba(94,231,255,.10),rgba(94,231,255,.025));
+  border:1px solid rgba(94,231,255,.13);
+  box-shadow:inset 3px 0 var(--cyan);
+}
+
+.status{
+  bottom:24px;
+  padding:16px;
+  border-radius:14px;
+  background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
+}
+
+main{
+  grid-column:2;
+  width:100%;
+  padding:34px clamp(24px,4vw,64px) 90px;
+  max-width:1600px;
+}
+.topbar{margin-bottom:28px}
+.breadcrumb{
+  padding:8px 11px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:rgba(255,255,255,.018);
+}
+.btn{
+  padding:10px 15px;
+  border-radius:10px;
+  border-color:var(--border);
+  background:rgba(255,255,255,.035);
+  transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease;
+}
+.btn:hover{transform:translateY(-2px);border-color:var(--border-strong);box-shadow:0 10px 30px rgba(0,229,255,.08)}
+
+.hero{grid-template-columns:minmax(0,1.55fr) minmax(300px,.75fr);gap:18px}
+.hero-main,.hero-side,.stat,.skill-card,.project,.contact-card{
+  border-color:var(--border);
+  box-shadow:var(--shadow);
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.008)),
+    var(--panel);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+.hero-main{
+  min-height:410px;
+  padding:clamp(30px,4vw,52px);
+  border-radius:22px;
+}
+.hero-main::before{
+  content:"";
+  position:absolute;
+  width:360px;height:360px;
+  right:-130px;top:-150px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(94,231,255,.13),transparent 68%);
+  pointer-events:none;
+}
+.hero-main::after{font-size:170px;letter-spacing:-.08em}
+.eyebrow{color:var(--cyan);margin-bottom:23px}
+.hero h1{
+  font-size:clamp(48px,6vw,88px);
+  letter-spacing:-.065em;
+}
+.hero h1 span{
+  background:linear-gradient(90deg,var(--cyan),#b7f6ff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero-description{font-size:14px;max-width:680px}
+.primary{
+  border:0;
+  background:linear-gradient(135deg,#5ee7ff,#31c9e8);
+  box-shadow:0 12px 32px rgba(94,231,255,.16);
+}
+.hero-side{
+  border-radius:22px;
+  padding:26px;
+}
+.avatar{
+  width:58px;height:58px;border-radius:16px;
+  background:linear-gradient(145deg,rgba(94,231,255,.13),rgba(94,231,255,.02));
+}
+.command{
+  padding:18px;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:14px;
+  background:#080d15;
+  line-height:2.05;
+}
+.command::before{
+  content:"SECURITY LAB // TERMINAL";
+  display:block;
+  color:#526176;
+  font-size:9px;
+  letter-spacing:.16em;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  padding-bottom:10px;
+  margin-bottom:10px;
+}
+
+.stats{gap:12px}
+.stat{
+  border-radius:15px;
+  padding:21px;
+  transition:transform .2s ease,border-color .2s ease;
+}
+.stat:hover{transform:translateY(-3px);border-color:rgba(94,231,255,.22)}
+.stat-value{font-size:30px}
+
+.section{margin-top:76px}
+.section-head{margin-bottom:22px}
+.section-head h2{font-size:28px}
+.section-head p{color:#7f8da3}
+
+.skills{gap:14px}
+.skill-card{
+  min-height:190px;
+  border-radius:16px;
+  padding:23px;
+}
+.skill-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(94,231,255,.28);
+  box-shadow:0 25px 60px rgba(0,0,0,.34);
+}
+.skill-icon{
+  display:inline-flex;
+  padding:5px 8px;
+  border:1px solid rgba(94,231,255,.16);
+  border-radius:7px;
+  background:rgba(94,231,255,.05);
+}
+
+.projects{gap:15px}
+.project{
+  min-height:260px;
+  border-radius:16px;
+  padding:25px;
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+.project:hover{
+  transform:translateY(-6px);
+  border-color:rgba(94,231,255,.28);
+  box-shadow:0 28px 70px rgba(0,0,0,.36);
+}
+.project::before{
+  content:"";
+  position:absolute;left:0;top:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+  opacity:.45;
+}
+.project-number{color:#526176}
+.view{font-weight:600}
+
+.timeline{
+  border-left:1px solid rgba(148,163,184,.18);
+}
+.timeline-item{padding-bottom:36px}
+.timeline-item::before{
+  background:var(--bg);
+  border:2px solid var(--cyan);
+  box-shadow:0 0 18px rgba(94,231,255,.38);
+}
+.timeline-item .date{letter-spacing:.08em}
+
+.contact{gap:16px}
+.contact-card{
+  border-radius:16px;
+  padding:30px;
+}
+.contact-link{
+  border-radius:10px;
+  background:rgba(255,255,255,.02);
+  transition:.2s;
+}
+.contact-link:hover{
+  transform:translateY(-2px);
+  background:rgba(94,231,255,.05);
+}
+
+footer{
+  margin-top:90px;
+  padding-top:24px;
+  color:#526176;
+}
+
+/* subtle reveal animation */
+@keyframes rise{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero-main,.hero-side,.stat,.skill-card,.project,.contact-card{
+  animation:rise .65s ease both;
+}
+.hero-side{animation-delay:.08s}
+.stat:nth-child(2){animation-delay:.06s}
+.stat:nth-child(3){animation-delay:.12s}
+.stat:nth-child(4){animation-delay:.18s}
+
+@media(max-width:1100px){
+  .layout{grid-template-columns:230px 1fr}
+  .sidebar{width:230px}
+  .hero{grid-template-columns:1fr}
+  .hero-side{min-height:auto}
+}
+@media(max-width:850px){
+  .layout{display:block}
+  .sidebar{
+    position:sticky;top:0;width:100%;z-index:50;
+    padding:14px 16px;
+    background:rgba(7,10,16,.88);
+  }
+  .logo{margin-bottom:12px}
+  main{padding:22px 18px 65px}
+  .status{display:none}
+  nav{padding-bottom:2px}
+  .hero{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .top-actions{display:flex}
+  .top-actions .btn:last-child{display:none}
+  .hero-main{padding:28px;min-height:440px}
+  .hero h1{font-size:46px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .section{margin-top:58px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+}
+
 </style>
 </head>
 
@@ -751,8 +1044,8 @@ footer{
         </div>
 
         <div class="top-actions">
-            <button class="btn" onclick="toggleTheme()">◐ Theme</button>
-            <button class="btn" onclick="window.print()">↳ Export</button>
+            <button class="btn" type="button" aria-label="Toggle light and dark theme" onclick="toggleTheme()">◐ Theme</button>
+            <button class="btn" type="button" aria-label="Print or export portfolio" onclick="window.print()">↳ Export</button>
         </div>
     </div>
 
@@ -1097,7 +1390,7 @@ footer{
                     </a>
 
                     <a class="contact-link"
-                       href="mailto:your-email@example.com">
+                       href="mailto:kiddib786@gmail.com">
                         Email ↗
                     </a>
 
@@ -1143,7 +1436,7 @@ footer{
 
     <footer>
         <span>ANZAR HUSSAIN PAUL // CYBERSECURITY</span>
-        <span>© 2026 // BUILT WITH HTML + CSS</span>
+        <span>© 2026 // BUILT WITH ❤️ By Anzar Hussain Paul</span>
     </footer>
 
 </main>
@@ -1210,4 +1503,3 @@ window.addEventListener("scroll", () => {
 
 </body>
 </html>
-```
