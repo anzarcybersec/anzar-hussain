@@ -1,0 +1,1213 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anzar Hussain Paul | Cybersecurity Researcher</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#06080d;
+    --panel:#0c1119;
+    --panel2:#101722;
+    --border:rgba(255,255,255,.08);
+    --text:#edf4ff;
+    --muted:#7f8da3;
+    --cyan:#00e5ff;
+    --green:#3cff9b;
+    --purple:#9d7cff;
+    --red:#ff5577;
+    --yellow:#ffd166;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        radial-gradient(circle at 80% 10%, rgba(0,229,255,.08), transparent 28%),
+        radial-gradient(circle at 10% 80%, rgba(157,124,255,.06), transparent 25%),
+        var(--bg);
+    color:var(--text);
+    font-family:Inter,sans-serif;
+    min-height:100vh;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.18;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size:45px 45px;
+    mask-image:linear-gradient(to bottom,black,transparent 90%);
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font:inherit;
+}
+
+.layout{
+    display:grid;
+    grid-template-columns:250px 1fr;
+    min-height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    position:fixed;
+    width:250px;
+    height:100vh;
+    padding:28px 18px;
+    border-right:1px solid var(--border);
+    background:rgba(6,8,13,.86);
+    backdrop-filter:blur(20px);
+    z-index:20;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:50px;
+}
+
+.logo-box{
+    width:38px;
+    height:38px;
+    border:1px solid var(--cyan);
+    display:grid;
+    place-items:center;
+    color:var(--cyan);
+    font-family:"JetBrains Mono";
+    font-size:13px;
+    box-shadow:0 0 20px rgba(0,229,255,.15);
+}
+
+.logo strong{
+    font-size:14px;
+    letter-spacing:.08em;
+}
+
+.logo span{
+    color:var(--muted);
+    font-size:10px;
+    display:block;
+    margin-top:3px;
+}
+
+.nav-title{
+    color:#465267;
+    font-size:10px;
+    font-family:"JetBrains Mono";
+    letter-spacing:.18em;
+    margin:0 12px 12px;
+}
+
+nav{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+nav a{
+    padding:12px;
+    border-radius:9px;
+    color:var(--muted);
+    font-size:13px;
+    transition:.25s;
+}
+
+nav a:hover,
+nav a.active{
+    color:var(--cyan);
+    background:rgba(0,229,255,.07);
+    border-left:2px solid var(--cyan);
+}
+
+.status{
+    position:absolute;
+    bottom:25px;
+    left:18px;
+    right:18px;
+    padding:15px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.02);
+    border-radius:12px;
+}
+
+.status-line{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:11px;
+    color:var(--muted);
+}
+
+.dot{
+    width:7px;
+    height:7px;
+    background:var(--green);
+    border-radius:50%;
+    box-shadow:0 0 10px var(--green);
+}
+
+/* MAIN */
+
+main{
+    grid-column:2;
+    padding:30px 40px 80px;
+    max-width:1500px;
+}
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+}
+
+.breadcrumb{
+    font-family:"JetBrains Mono";
+    font-size:11px;
+    color:#58657a;
+}
+
+.breadcrumb span{
+    color:var(--cyan);
+}
+
+.top-actions{
+    display:flex;
+    gap:10px;
+}
+
+.btn{
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.03);
+    color:var(--text);
+    padding:9px 14px;
+    border-radius:8px;
+    font-size:11px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.btn:hover{
+    border-color:var(--cyan);
+    color:var(--cyan);
+}
+
+/* HERO */
+
+.hero{
+    display:grid;
+    grid-template-columns:1.5fr .8fr;
+    gap:22px;
+    margin-bottom:22px;
+}
+
+.hero-main{
+    min-height:390px;
+    padding:42px;
+    position:relative;
+    overflow:hidden;
+    border:1px solid var(--border);
+    border-radius:18px;
+    background:
+        linear-gradient(135deg,rgba(0,229,255,.055),transparent 45%),
+        var(--panel);
+}
+
+.hero-main::after{
+    content:"ANZAR";
+    position:absolute;
+    right:-20px;
+    bottom:-60px;
+    font-size:150px;
+    font-weight:800;
+    color:rgba(255,255,255,.018);
+    pointer-events:none;
+}
+
+.eyebrow{
+    font-family:"JetBrains Mono";
+    color:var(--cyan);
+    font-size:11px;
+    letter-spacing:.16em;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(42px,5vw,76px);
+    line-height:.95;
+    letter-spacing:-.055em;
+    max-width:800px;
+}
+
+.hero h1 span{
+    color:var(--cyan);
+}
+
+.hero-description{
+    color:var(--muted);
+    max-width:650px;
+    line-height:1.7;
+    margin-top:24px;
+    font-size:14px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:28px;
+}
+
+.primary{
+    background:var(--cyan);
+    color:#031014;
+    border-color:var(--cyan);
+    font-weight:700;
+}
+
+.primary:hover{
+    background:#68efff;
+    color:#031014;
+}
+
+.hero-side{
+    border:1px solid var(--border);
+    border-radius:18px;
+    background:var(--panel);
+    padding:24px;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:28px;
+}
+
+.avatar{
+    width:55px;
+    height:55px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    border:1px solid var(--cyan);
+    color:var(--cyan);
+    font-family:"JetBrains Mono";
+    background:rgba(0,229,255,.04);
+}
+
+.profile h3{
+    font-size:15px;
+}
+
+.profile p{
+    font-size:11px;
+    color:var(--muted);
+    margin-top:4px;
+}
+
+.command{
+    font-family:"JetBrains Mono";
+    font-size:11px;
+    line-height:2;
+    color:#76869d;
+}
+
+.command .green{
+    color:var(--green);
+}
+
+.command .cyan{
+    color:var(--cyan);
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-bottom:22px;
+}
+
+.stat{
+    padding:20px;
+    border:1px solid var(--border);
+    border-radius:13px;
+    background:var(--panel);
+}
+
+.stat-label{
+    color:#68758a;
+    font-size:10px;
+    font-family:"JetBrains Mono";
+    text-transform:uppercase;
+    letter-spacing:.1em;
+}
+
+.stat-value{
+    font-size:28px;
+    font-weight:700;
+    margin-top:9px;
+}
+
+.stat-value.cyan{color:var(--cyan)}
+.stat-value.green{color:var(--green)}
+.stat-value.purple{color:var(--purple)}
+.stat-value.yellow{color:var(--yellow)}
+
+.stat small{
+    color:#566277;
+    font-size:10px;
+}
+
+/* SECTION */
+
+.section{
+    margin-top:60px;
+    scroll-margin-top:30px;
+}
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:20px;
+}
+
+.section-head h2{
+    font-size:25px;
+    letter-spacing:-.03em;
+}
+
+.section-head p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* SKILLS */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.skill-card{
+    padding:22px;
+    min-height:160px;
+    border:1px solid var(--border);
+    background:var(--panel);
+    border-radius:13px;
+    transition:.25s;
+}
+
+.skill-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(0,229,255,.35);
+}
+
+.skill-icon{
+    font-family:"JetBrains Mono";
+    color:var(--cyan);
+    font-size:12px;
+    margin-bottom:18px;
+}
+
+.skill-card h3{
+    font-size:14px;
+    margin-bottom:9px;
+}
+
+.skill-card p{
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.6;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-top:14px;
+}
+
+.tag{
+    padding:5px 8px;
+    border-radius:5px;
+    background:rgba(255,255,255,.04);
+    color:#9aa7b9;
+    font-family:"JetBrains Mono";
+    font-size:9px;
+}
+
+/* PROJECTS */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.project{
+    padding:24px;
+    min-height:240px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    background:var(--panel);
+    position:relative;
+    overflow:hidden;
+}
+
+.project-number{
+    position:absolute;
+    right:18px;
+    top:16px;
+    font-family:"JetBrains Mono";
+    font-size:10px;
+    color:#465267;
+}
+
+.project h3{
+    margin-top:35px;
+    font-size:17px;
+}
+
+.project p{
+    color:var(--muted);
+    line-height:1.6;
+    font-size:11px;
+    margin-top:10px;
+}
+
+.project-footer{
+    position:absolute;
+    left:24px;
+    right:24px;
+    bottom:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.project-status{
+    color:var(--green);
+    font-family:"JetBrains Mono";
+    font-size:9px;
+}
+
+.view{
+    color:var(--cyan);
+    font-size:10px;
+}
+
+/* TIMELINE */
+
+.timeline{
+    border-left:1px solid var(--border);
+    margin-left:8px;
+}
+
+.timeline-item{
+    position:relative;
+    padding:0 0 30px 28px;
+}
+
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    left:-5px;
+    top:3px;
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 12px rgba(0,229,255,.5);
+}
+
+.timeline-item .date{
+    font-family:"JetBrains Mono";
+    font-size:10px;
+    color:var(--cyan);
+}
+
+.timeline-item h3{
+    font-size:14px;
+    margin-top:7px;
+}
+
+.timeline-item p{
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.6;
+    margin-top:5px;
+}
+
+/* CONTACT */
+
+.contact{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.contact-card{
+    border:1px solid var(--border);
+    background:var(--panel);
+    border-radius:14px;
+    padding:28px;
+}
+
+.contact-card h3{
+    margin-bottom:10px;
+}
+
+.contact-card p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.7;
+}
+
+.contact-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:20px;
+}
+
+.contact-link{
+    padding:10px 13px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    font-size:11px;
+    color:#aeb9c9;
+}
+
+.contact-link:hover{
+    color:var(--cyan);
+    border-color:var(--cyan);
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:80px;
+    padding-top:20px;
+    border-top:1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    color:#4d5a6e;
+    font-family:"JetBrains Mono";
+    font-size:9px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+    .skills{grid-template-columns:repeat(2,1fr)}
+    .projects{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:850px){
+    .layout{
+        display:block;
+    }
+
+    .sidebar{
+        position:relative;
+        width:100%;
+        height:auto;
+        padding:18px;
+        border-right:0;
+        border-bottom:1px solid var(--border);
+    }
+
+    .logo{
+        margin-bottom:15px;
+    }
+
+    nav{
+        flex-direction:row;
+        overflow:auto;
+    }
+
+    nav a{
+        white-space:nowrap;
+    }
+
+    .status{
+        display:none;
+    }
+
+    main{
+        padding:25px 18px 60px;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+    .top-actions{
+        display:none;
+    }
+
+    .hero-main{
+        padding:27px;
+        min-height:450px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .skills,
+    .projects,
+    .contact{
+        grid-template-columns:1fr;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-box">&lt;/&gt;</div>
+        <div>
+            <strong>ANZAR.HP</strong>
+            <span>SECURITY RESEARCH</span>
+        </div>
+    </div>
+
+    <div class="nav-title">NAVIGATION</div>
+
+    <nav>
+        <a href="#home" class="active">01 / Overview</a>
+        <a href="#skills">02 / Arsenal</a>
+        <a href="#projects">03 / Projects</a>
+        <a href="#research">04 / Research</a>
+        <a href="#contact">05 / Contact</a>
+    </nav>
+
+    <div class="status">
+        <div class="status-line">
+            <span class="dot"></span>
+            AVAILABLE FOR RESEARCH
+        </div>
+    </div>
+
+</aside>
+
+
+<!-- MAIN -->
+<main>
+
+    <div class="topbar">
+        <div class="breadcrumb">
+            root / <span>anzar_hussain_paul</span> / portfolio
+        </div>
+
+        <div class="top-actions">
+            <button class="btn" onclick="toggleTheme()">◐ Theme</button>
+            <button class="btn" onclick="window.print()">↳ Export</button>
+        </div>
+    </div>
+
+
+    <!-- HERO -->
+    <section id="home">
+
+        <div class="hero">
+
+            <div class="hero-main">
+
+                <div class="eyebrow">
+                    CYBERSECURITY // ETHICAL HACKING // RESEARCH
+                </div>
+
+                <h1>
+                    Anzar<br>
+                    Hussain <span>Paul.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Cybersecurity researcher and ethical hacking enthusiast
+                    focused on offensive security, vulnerability research,
+                    web application security and practical security engineering.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn primary">
+                        Explore Research →
+                    </a>
+
+                    <a href="#contact" class="btn">
+                        Contact Me
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="hero-side">
+
+                <div class="profile">
+                    <div class="avatar">AHP</div>
+
+                    <div>
+                        <h3>Anzar Hussain Paul</h3>
+                        <p>Cybersecurity Researcher</p>
+                    </div>
+                </div>
+
+                <div class="command">
+                    <div><span class="green">$</span> whoami</div>
+                    <div class="cyan">anzar@security-lab</div>
+
+                    <br>
+
+                    <div><span class="green">$</span> mission</div>
+                    <div>find → understand → secure</div>
+
+                    <br>
+
+                    <div><span class="green">$</span> focus</div>
+                    <div>web_security</div>
+                    <div>vulnerability_research</div>
+                    <div>ethical_hacking</div>
+
+                    <br>
+
+                    <div><span class="green">$</span> status</div>
+                    <div class="cyan">ONLINE / RESEARCHING</div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- STATS -->
+
+        <div class="stats">
+
+            <div class="stat">
+                <div class="stat-label">Security Focus</div>
+                <div class="stat-value cyan">OFF</div>
+                <small>Offensive Security</small>
+            </div>
+
+            <div class="stat">
+                <div class="stat-label">Research Mode</div>
+                <div class="stat-value green">ON</div>
+                <small>Continuous learning</small>
+            </div>
+
+            <div class="stat">
+                <div class="stat-label">Primary Area</div>
+                <div class="stat-value purple">WEB</div>
+                <small>Application Security</small>
+            </div>
+
+            <div class="stat">
+                <div class="stat-label">Ethics</div>
+                <div class="stat-value yellow">100%</div>
+                <small>Responsible testing</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section class="section" id="skills">
+
+        <div class="section-head">
+            <div>
+                <h2>Security Arsenal</h2>
+                <p>Areas of technical interest and expertise.</p>
+            </div>
+        </div>
+
+        <div class="skills">
+
+            <div class="skill-card">
+                <div class="skill-icon">[01]</div>
+                <h3>Offensive Security</h3>
+                <p>Security testing focused on identifying weaknesses before attackers can exploit them.</p>
+                <div class="tags">
+                    <span class="tag">Pentesting</span>
+                    <span class="tag">Recon</span>
+                    <span class="tag">Exploitation</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">[02]</div>
+                <h3>Web Security</h3>
+                <p>Researching vulnerabilities in modern web applications and APIs.</p>
+                <div class="tags">
+                    <span class="tag">OWASP</span>
+                    <span class="tag">API</span>
+                    <span class="tag">Burp Suite</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">[03]</div>
+                <h3>Security Research</h3>
+                <p>Studying vulnerabilities, attack surfaces and defensive security concepts.</p>
+                <div class="tags">
+                    <span class="tag">CVEs</span>
+                    <span class="tag">Fuzzing</span>
+                    <span class="tag">Analysis</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">[04]</div>
+                <h3>Tools & Systems</h3>
+                <p>Working with Linux, security tooling, scripting and network analysis.</p>
+                <div class="tags">
+                    <span class="tag">Linux</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Nmap</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section class="section" id="projects">
+
+        <div class="section-head">
+            <div>
+                <h2>Research / Projects</h2>
+                <p>Selected security work and experiments.</p>
+            </div>
+        </div>
+
+        <div class="projects">
+
+            <article class="project">
+                <span class="project-number">PROJECT_01</span>
+
+                <h3>Web Security Lab</h3>
+
+                <p>
+                    A controlled environment for studying common web
+                    application vulnerabilities, attack paths and defensive
+                    mitigations.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Web</span>
+                    <span class="tag">OWASP</span>
+                    <span class="tag">Lab</span>
+                </div>
+
+                <div class="project-footer">
+                    <span class="project-status">● ACTIVE</span>
+                    <span class="view">VIEW CASE →</span>
+                </div>
+            </article>
+
+
+            <article class="project">
+                <span class="project-number">PROJECT_02</span>
+
+                <h3>Vulnerability Research</h3>
+
+                <p>
+                    Experimental research into vulnerability discovery,
+                    attack surface analysis and responsible disclosure.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Research</span>
+                    <span class="tag">CVE</span>
+                    <span class="tag">Analysis</span>
+                </div>
+
+                <div class="project-footer">
+                    <span class="project-status">● RESEARCH</span>
+                    <span class="view">VIEW CASE →</span>
+                </div>
+            </article>
+
+
+            <article class="project">
+                <span class="project-number">PROJECT_03</span>
+
+                <h3>Security Automation</h3>
+
+                <p>
+                    Security scripts and automation experiments designed to
+                    reduce repetitive reconnaissance and analysis tasks.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Automation</span>
+                    <span class="tag">Linux</span>
+                </div>
+
+                <div class="project-footer">
+                    <span class="project-status">● BUILDING</span>
+                    <span class="view">VIEW CASE →</span>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESEARCH -->
+
+    <section class="section" id="research">
+
+        <div class="section-head">
+            <div>
+                <h2>Research Timeline</h2>
+                <p>Current direction and professional development.</p>
+            </div>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="date">01 / OFFENSIVE SECURITY</div>
+                <h3>Ethical Hacking & Penetration Testing</h3>
+                <p>
+                    Building practical skills around reconnaissance,
+                    enumeration, vulnerability discovery and controlled
+                    exploitation.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="date">02 / APPLICATION SECURITY</div>
+                <h3>Web & API Security Research</h3>
+                <p>
+                    Exploring authentication, authorization, input handling,
+                    business logic and API attack surfaces.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="date">03 / CONTINUOUS RESEARCH</div>
+                <h3>Learning → Testing → Documenting</h3>
+                <p>
+                    Turning security knowledge into reproducible labs,
+                    technical notes and useful security research.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="section" id="contact">
+
+        <div class="section-head">
+            <div>
+                <h2>Establish Connection</h2>
+                <p>Have a security project, research idea or collaboration?</p>
+            </div>
+        </div>
+
+        <div class="contact">
+
+            <div class="contact-card">
+
+                <h3>Let's talk security.</h3>
+
+                <p>
+                    I'm interested in cybersecurity research, ethical hacking,
+                    security projects and technical collaboration.
+                </p>
+
+                <div class="contact-links">
+
+                    <!-- Replace these links with your real profiles -->
+
+                    <a class="contact-link"
+                       href="https://github.com/"
+                       target="_blank">
+                        GitHub ↗
+                    </a>
+
+                    <a class="contact-link"
+                       href="https://www.linkedin.com/"
+                       target="_blank">
+                        LinkedIn ↗
+                    </a>
+
+                    <a class="contact-link"
+                       href="mailto:your-email@example.com">
+                        Email ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="command">
+
+                    <div><span class="green">$</span> connect anzar</div>
+
+                    <br>
+
+                    <div>protocol: <span class="cyan">HTTPS</span></div>
+                    <div>security: <span class="green">RESPONSIBLE</span></div>
+                    <div>status: <span class="green">AVAILABLE</span></div>
+
+                    <br>
+
+                    <div>
+                        "Security is not about breaking systems.
+                    </div>
+
+                    <div>
+                        It's about understanding them deeply
+                    </div>
+
+                    <div>
+                        enough to make them stronger."
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        <span>ANZAR HUSSAIN PAUL // CYBERSECURITY</span>
+        <span>© 2026 // BUILT WITH HTML + CSS</span>
+    </footer>
+
+</main>
+
+</div>
+
+
+<script>
+
+function toggleTheme(){
+
+    const root = document.documentElement;
+
+    if(root.style.getPropertyValue("--bg") === "#f4f7fb"){
+
+        root.style.setProperty("--bg","#06080d");
+        root.style.setProperty("--panel","#0c1119");
+        root.style.setProperty("--panel2","#101722");
+        root.style.setProperty("--text","#edf4ff");
+        root.style.setProperty("--muted","#7f8da3");
+
+    }else{
+
+        root.style.setProperty("--bg","#f4f7fb");
+        root.style.setProperty("--panel","#ffffff");
+        root.style.setProperty("--panel2","#f0f4f8");
+        root.style.setProperty("--text","#101722");
+        root.style.setProperty("--muted","#5d6878");
+
+    }
+
+}
+
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 120;
+
+        if(window.scrollY >= sectionTop){
+            current = section.getAttribute("id");
+        }
+
+    });
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if(link.getAttribute("href") === "#" + current){
+            link.classList.add("active");
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
+```
